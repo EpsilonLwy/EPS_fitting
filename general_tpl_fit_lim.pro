@@ -131,9 +131,9 @@ pro general_tpl_fit_lim,x,y,x_err=x_err,y_err=y_err,p=p,tol=tol,chisq=chisq,redu
         p_tpl[6]=min([2*p_lower_1,p_max[6]])
         p_tpl[7]= min([2*p_lower_2,p_max[7]])
         reduced_chisq_tpl=general_tpl_chisq(lnx,lny,x_err=lnx_err,y_err=lny_err,p=p_tpl,numerical=numerical)/(n_elements(x)-total(fita*[1,1,1,1,1,1,0,0]))
-        print,'reduced_chisq_tpl='+strmid(strcompress(string(reduced_chisq_tpl),/rem),0,4)
-        print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
-        print,p_tpl
+        ;print,'reduced_chisq_tpl='+strmid(strcompress(string(reduced_chisq_tpl),/rem),0,4)
+        ;print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
+        ;print,p_tpl
       endif
 
 ;      ;; dpl limit
@@ -182,8 +182,8 @@ pro general_tpl_fit_lim,x,y,x_err=x_err,y_err=y_err,p=p,tol=tol,chisq=chisq,redu
         p_lp[5]=lnx0_2
         p_lp[0]=lny0_1+p_lp[1]*lnx0_1+(p_lp[2]-p_lp[1])/p_lp[6]*alog(2)+(p_lp[3]-p_lp[2])/p_lp[7]*alog(1+exp(p_lp[7]*(lnx0_1-lnx0_2)))
         reduced_chisq_lp=general_tpl_chisq(lnx,lny,x_err=lnx_err,y_err=lny_err,p=p_lp,numerical=numerical)/(n_elements(x)-total(fita*[1,1,1,1,0,0,0,0]))
-        print,'reduced_chisq_lp='+strmid(strcompress(string(reduced_chisq_lp),/rem),0,4)
-        print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
+        ;print,'reduced_chisq_lp='+strmid(strcompress(string(reduced_chisq_lp),/rem),0,4)
+        ;print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
       endif
 
       ;; exponential cut-off limit(ER-like limit)
@@ -215,8 +215,8 @@ pro general_tpl_fit_lim,x,y,x_err=x_err,y_err=y_err,p=p,tol=tol,chisq=chisq,redu
         p_eco[5]=p_new_2
         p_eco[0]=lny_E1-(-p_eco[1]*p_eco[4]+(p_eco[1]-p_eco[2])/p_eco[6]*alog(1+exp(p_eco[6]*(p_eco[4]-p_eco[4])))+(p_eco[2]-p_eco[3])/p_eco[7]*alog(1+exp(p_eco[7]*(p_eco[4]-p_eco[5]))))
         reduced_chisq_eco=general_tpl_chisq(lnx,lny,x_err=lnx_err,y_err=lny_err,p=p_eco,numerical=numerical)/(n_elements(x)-total(fita*[1,1,0,0,0,1,0,1]))
-        print,'reduced_chisq_eco='+strmid(strcompress(string(reduced_chisq_eco),/rem),0,4)
-        print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
+        ;print,'reduced_chisq_eco='+strmid(strcompress(string(reduced_chisq_eco),/rem),0,4)
+        ;print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
       endif
 
       ;; !!!!
@@ -232,8 +232,8 @@ pro general_tpl_fit_lim,x,y,x_err=x_err,y_err=y_err,p=p,tol=tol,chisq=chisq,redu
         p_kappa[2]=-(lny_Emax-lny_E1)/(max(lnx)-p[4])
 
         reduced_chisq_kappa=general_tpl_chisq(lnx,lny,x_err=lnx_err,y_err=lny_err,p=p_kappa,numerical=numerical)/(n_elements(x)-total(fita*[1,0,1,0,1,1,0,1]))
-        print,'reduced_chisq_kappa='+strmid(strcompress(string(reduced_chisq_kappa),/rem),0,4)
-        print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
+        ;print,'reduced_chisq_kappa='+strmid(strcompress(string(reduced_chisq_kappa),/rem),0,4)
+        ;print,'reduced_chisq_gs='+strmid(strcompress(string(reduced_chisq_gs),/rem),0,4)
       endif
 
       ;; output limit
